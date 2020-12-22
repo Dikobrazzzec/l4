@@ -1,4 +1,5 @@
 ﻿  l4.cpp
-D:\C++\laby\l4\l4\l4.cpp(58,20): warning C4018: <: несоответствие типов со знаком и без знака
-D:\C++\laby\l4\l4\l4.cpp(66,13): warning C4101: q: неиспользованная локальная переменная
-  l4.vcxproj -> D:\C++\laby\l4\Debug\l4.exe
+C:\GITPr\C++\CryptoAPI\laby\l4\l4\l4.cpp(58,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\GITPr\C++\CryptoAPI\laby\l4\l4\l4.cpp(83,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\GITPr\C++\CryptoAPI\laby\l4\l4\l4.cpp(97,20): warning C4018: <: несоответствие типов со знаком и без знака
+  l4.vcxproj -> C:\GITPr\C++\CryptoAPI\laby\l4\Debug\l4.exe

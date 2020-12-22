@@ -25,7 +25,7 @@ void FirstPart() {
 	HCRYPTHASH hashDeskEn;
 	HCRYPTHASH hashDeskDec;
 	CryptAcquireContext(&q, NULL, NULL, PROV_RSA_SCHANNEL, CRYPT_VERIFYCONTEXT);
-	CryptCreateHash(q, CALG_MD5, 0, 0, &hashDesk);
+	CryptCreateHash(q, CALG_MD5, 0, 0, &hashDesk);  //3 параметр!!!!!!!!!!!!
 	CryptCreateHash(q, CALG_MD5, 0, 0, &hashDeskEn);
 	CryptCreateHash(q, CALG_MD5, 0, 0, &hashDeskDec);
 	//if (!CryptHashData(hashDesk, basKeyArr, 100, 0)) {
@@ -65,11 +65,48 @@ void SecondPart() {
 	HCRYPTPROV cryptDesk;
 	HCRYPTPROV q;
 	HCRYPTKEY keyDesk;
-	LPCTSTR contName = L"Containerrrr";
-	CryptAcquireContext(&cryptDesk, contName, MS_DEF_PROV, PROV_RSA_FULL, CRYPT_NEWKEYSET);
+	HCRYPTKEY openkeyDesk;
+	HCRYPTHASH hashDesk;
+	LPCTSTR contName = L"Name";
+	CryptAcquireContext(&q, NULL, NULL, PROV_RSA_SCHANNEL, CRYPT_VERIFYCONTEXT);
+	CryptCreateHash(q, CALG_MD5, 0, 0, &hashDesk);    //3 параметр!!!!!!!!!!!
+	BYTE DATA[100];
+	DWORD DataArrSize;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout <<"++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<< endl;
+	cout << " Enter quantity  of bytes" << endl;
+	cin >> DataArrSize;
+	CryptGenRandom(q, DataArrSize, DATA);
+	for (int i = 0; i < DataArrSize; i++) {
+		cout <<hex<<int( DATA[i]);
+	}
+	cout << endl;
+	if (!CryptAcquireContext(&cryptDesk, contName, MS_DEF_PROV, PROV_RSA_FULL, CRYPT_SILENT)) {
+		cout<<'2'<<endl;
+	}
 	if (!CryptGenKey(cryptDesk, AT_KEYEXCHANGE, CRYPT_EXPORTABLE, &keyDesk)) {
 		cout << '1' << endl;
 	}
+	if (!CryptEncrypt(keyDesk, NULL, TRUE, NULL, DATA, &DataArrSize, 100)) {
+		cout << '3' << endl;
+	}
+	cout << "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII" << endl;
+	for (int i = 0; i < DataArrSize; i++) {
+		cout << hex << int(DATA[i]);
+	}
+
+	if (!CryptGetUserKey(q, AT_KEYEXCHANGE, &openkeyDesk)) {
+		cout << '4' << endl;
+	}
+	BYTE DATABLOMB[200];
+	DWORD DATABLOMBSize = 200;
+	if (CryptExportKey(keyDesk, openkeyDesk, PRIVATEKEYBLOB, NULL, DATABLOMB, &DATABLOMBSize)) {
+		cout << '5' << endl;
+	}
+
 }
 
 int main()

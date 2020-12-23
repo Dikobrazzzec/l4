@@ -1,5 +1,5 @@
 ﻿  l4.cpp
-C:\GITPr\C++\CryptoAPI\laby\l4\l4\l4.cpp(58,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\GITPr\C++\CryptoAPI\laby\l4\l4\l4.cpp(83,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\GITPr\C++\CryptoAPI\laby\l4\l4\l4.cpp(97,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\GITPr\C++\CryptoAPI\laby\l4\l4\l4.cpp(33,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\GITPr\C++\CryptoAPI\laby\l4\l4\l4.cpp(51,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\GITPr\C++\CryptoAPI\laby\l4\l4\l4.cpp(64,13): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
   l4.vcxproj -> C:\GITPr\C++\CryptoAPI\laby\l4\Debug\l4.exe
